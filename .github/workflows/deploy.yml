@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Create .kube directory
+      run: mkdir -p $HOME/.kube
     - name: Set up Kubeconfig
       run: echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
     - name: Sync with Argo CD

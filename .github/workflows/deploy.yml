@@ -11,21 +11,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    
-    - name: Set up .kube directory
+    - name: Create .kube directory
       run: mkdir -p $HOME/.kube
-    
     - name: Set up Kubeconfig
       run: echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-    
-    - name: Set KUBECONFIG environment variable
-      run: export KUBECONFIG=$HOME/.kube/config
-    
-    - name: Validate and Apply Kubernetes Manifests
-      run: |
-        kubectl apply -f k8s/deployment.yaml --validate=false
-        kubectl apply -f k8s/service.yaml --validate=false
-    
     - name: Sync with Argo CD
       run: |
+        kubectl apply -f k8s/
         argocd app sync hello-world

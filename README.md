@@ -13,9 +13,6 @@ GitOps is a set of practices to manage infrastructure and application configurat
 4. Continuously Reconciled - Software agents continuously observe actual system state and attempt to apply the desired state.
 
 
-GET INVOLVED
-
-
 ### How Does Argo CD Implement These Practices?
 
 In summary Argo CD works as GitOps controller that pulls automatically updates (principle 3) from manifests stored in Git (principle 2) that describe Kubernetes objects in a declarative manner (principle 1). The syncing process between Git and cluster is happening at regular intervals and works both ways so if you understand the principles of GitOps you can understand the decisions behind Argo CD. The GitOps principles are explained at opengitops.dev. In summary Argo CD works as GitOps controller that pulls automatically updates (principle 3) from manifests stored in Git (principle 2) that describe Kubernetes objects in a declarative manner (principle 1). The syncing process between Git and cluster is happening at regular intervals and works both ways
